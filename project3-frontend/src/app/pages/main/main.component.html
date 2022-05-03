@@ -1,0 +1,23 @@
+<div id = "search" class = "flex smallGap desktop-view">
+	<input [(ngModel)] = "searchQuery" (keydown) = "onKeyDown ($event);" id = "searchInput" class = "mediumFont desktop-view" placeholder = "Search..." />
+	
+	<button (click) = "search ();" id = "searchButton" class = "mediumFont desktop-view">Search</button>
+</div>
+
+<div id = "search-mobile" class = "flex smallGap mobile-view">
+	<input [(ngModel)] = "searchQuery" (keydown) = "onKeyDown ($event);" id = "searchInput" class = "mediumFont mobile-view" placeholder = "Search..." />
+	
+	<button (click) = "search ();" id = "searchButton" class = "mediumFont mobile-view">Search</button>
+</div>
+
+<div id = "products" class = "flex mediumGap">
+	<app-product *ngFor = "let product of this.dataService.products" [product] = "product"></app-product>
+</div>
+
+<!--
+	Admin Team Additions
+-->
+<a>
+
+</a>
+<button *ngIf="dataService.user?.role?.role == 'ADMIN'" routerLink="admin-new-product" id="new-product">Add New Product</button>
